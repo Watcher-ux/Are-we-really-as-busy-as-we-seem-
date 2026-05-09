@@ -1,0 +1,22 @@
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+export type ResponseRow = {
+  id?: string
+  perceived_free_hours: number
+  perceived_screen_pct: number
+  feel_busy_freq: string
+  avg_pickup_duration: string
+  screen_intentionality: string
+  actual_screen_hours?: number | null
+  actual_pickups?: number | null
+  top_app_category?: string | null
+  age_range?: string | null
+  occupation_type?: string | null
+  week_number: number
+  created_at?: string
+}
